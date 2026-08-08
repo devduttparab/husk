@@ -1,5 +1,6 @@
 """
-Husk
+Husk  
+VERSION = "1.0"
 ----
 A local GUI tool (Tkinter, standard library only) for safely stripping
 the bloat off a Windows PC and speeding it up:
