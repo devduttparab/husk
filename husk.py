@@ -818,6 +818,29 @@ def main():
     app = OptimizerApp()
     app.mainloop()
 
+import argparse
+
+def cli_mode():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--clean", help="Clean temp files", action="store_true")
+    parser.add_argument("--info", help="Show system info", action="store_true")
+
+    args = parser.parse_args()
+
+    if args.clean:
+        print("Cleaning temp files...")
+
+    if args.info:
+        print("Showing system info...")
+
+
+def main():
+    if len(sys.argv) > 1:
+        cli_mode()
+    else:
+        app = OptimizerApp()
+        app.mainloop()
+
 
 if __name__ == "__main__":
     main()
