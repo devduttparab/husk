@@ -427,7 +427,7 @@ def get_disk_info():
 class OptimizerApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Husk")
+        self.title(f"Husk v{VERSION}")
         self.geometry("820x600")
         self.minsize(720, 520)
 
