@@ -1,75 +1,71 @@
 # Husk
 
-A local, standard-library-only Python GUI tool for safely stripping the
-bloat off a Windows PC — no third-party dependencies, no telemetry,
-nothing sent anywhere.
+A lightweight, zero-dependency Python GUI tool to clean, optimize, and manage Windows systems safely.
 
-![platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)
-![python](https://img.shields.io/badge/python-3.9%2B-blue)
-![license](https://img.shields.io/badge/license-MIT-green)
+Built using only Python standard library (Tkinter, ctypes, winreg, subprocess).
 
-## Features
+---
 
-| Tab | What it does |
-|---|---|
-| **Quick Cleanup** | Scans and clears TEMP folders, empties the Recycle Bin, clears browser caches (Chrome/Edge/Firefox) |
-| **Startup Manager** | Lists Run-key startup entries; disable/re-enable with a local JSON backup so nothing is ever lost |
-| **Visual Effects** | Toggles animations, transparency, window shadows, menu delay — the same registry keys Windows' own performance settings expose |
-| **Services** | Start/stop/set-startup-type for a *curated* list of optional services only (Superfetch, telemetry, Windows Search, Fax, etc.) — never the full service list |
-| **System Info** | RAM, disk, and CPU snapshot |
+## 🚀 Why Husk?
 
-## Requirements
+Most PC optimization tools:
+- Install unnecessary software
+- Track user data
+- Modify system settings blindly
 
-- Windows 10 or 11
+**Husk is different:**
+- ❌ No telemetry
+- ❌ No external dependencies
+- ✅ Fully transparent operations
+- ✅ Safe & reversible changes only
+
+---
+
+## 🧩 Features
+
+### 🧹 Quick Cleanup
+- Clears TEMP folders
+- Empties Recycle Bin
+- Removes browser cache (Chrome, Edge, Firefox)
+
+### ⚙️ Startup Manager
+- View startup programs
+- Disable safely (with backup)
+- Restore anytime
+
+### 🎨 Visual Effects
+- Toggle animations, shadows, transparency
+- Improve performance on low-end machines
+
+### 🔧 Services Manager
+- Control only *safe, non-critical* services
+- No risk to system stability
+
+### 📊 System Info
+- RAM usage
+- Disk usage
+- CPU snapshot
+
+---
+
+## 🛡️ Safety First
+
+- Registry changes are **limited + reversible**
+- Startup items backed up in `startup_backup.json`
+- Only curated services are exposed
+- No system-critical services touched
+
+---
+
+## 🖥️ Requirements
+
+- Windows 10 / 11
 - Python 3.9+
-- No `pip install` needed — uses only the standard library (`tkinter`,
-  `winreg`, `ctypes`, `subprocess`, `shutil`)
+- No external libraries required
 
-## Usage
+---
+
+## ▶️ Run
 
 ```bash
 python husk.py
-```
-
-For **Startup Manager** and **Services**, run as Administrator — either
-right-click the script → *Run as administrator*, or use the in-app
-"Restart as Administrator" button that appears when not elevated.
-
-## Safety
-
-- Every registry write targets a known, documented, reversible key —
-  the same ones exposed by Windows' own Settings app / System Restore.
-- Disabling a startup item backs it up to `startup_backup.json` next to
-  the script, so it can always be restored from within the app.
-- The Services tab exposes only a small, curated list of non-critical
-  services — never anything related to Windows Update, security, or
-  drivers.
-
-## Project structure
-
-```
-.
-├── husk.py                # the app
-├── README.md
-├── LICENSE
-└── .gitignore
-```
-
-`startup_backup.json` is created automatically the first time you
-disable a startup item; it's machine-specific and git-ignored.
-
-## Contributing
-
-Issues and PRs welcome — in particular, additions to the curated
-`SAFE_SERVICES` list should include a short risk note, same as the
-existing entries.
-
-## Author
-
-**Devdutt Parab**
-Email: [devduttparab@gmail.com](mailto:devduttparab@gmail.com)
-LinkedIn: [linkedin.com/in/devdutt-parab](https://www.linkedin.com/in/devdutt-parab/)
-
-## License
-
-MIT — see [LICENSE](LICENSE).
